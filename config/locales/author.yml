@@ -1,0 +1,34 @@
+---
+  pt-BR:
+    links:
+      back: Voltar
+      edit: Editar
+      delete: Excluir
+      update: Atualizar
+      create: Cadastrar
+    authors:
+      form:
+        label:
+          name: Nome do Autor
+        placeholder:
+          name: Autor Generico
+
+      new:
+        title: Formulário de Cadastro de Autor
+
+      create:
+        success: Autor cadastrado com sucesso
+
+      update:
+        success: Autor atualizado com sucesso
+
+      destroy:
+        success: Autor excluido com sucesso
+        fail: Autor não pode ser excluido, pois existem livros associados
+
+      edit:
+        title: Formulário de Atualização de Autor
+        label:
+          name: Nome do Autor
+        placeholder:
+          name: Autor Generico

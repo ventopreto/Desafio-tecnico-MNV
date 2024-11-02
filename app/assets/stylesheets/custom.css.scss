@@ -24,6 +24,12 @@ $success-text-color: #468847;
   }
 }
 
+.inner-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .error-message {
   margin-left: 5px;
   display: inline;

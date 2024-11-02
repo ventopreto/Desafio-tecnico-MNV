@@ -1,0 +1,18 @@
+<div class="container">
+<div class="card mx-auto" style="width: 15rem;">
+  <div class="card-body">
+    <%= form_with(model: @author, local: true) do |f| %>
+        <%= f.label :name, t('.label.name'), class:"form_label" %>
+            <%= error_tag @author, :name %>
+        <%= f.text_field :name, placeholder: t('.placeholder.name') , class:"form_controll" %>
+
+        <div class="input-group-btn">
+          <%= f.submit button_text,  class:"btn btn-outline-success btn-sm mt-2" %>
+          <% if @author.persisted? %>
+            <%= link_to t('links.back'), author_path(@author), class: "btn btn-outline-dark btn-sm mt-2" %>
+          <% else %>
+            <%= link_to t('links.back'), authors_path, class: "btn btn-outline-dark btn-sm mt-2" %>
+          <% end %>
+      </div>
+  <% end %>
+</div>
