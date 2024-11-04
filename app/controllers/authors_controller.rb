@@ -17,7 +17,7 @@ class AuthorsController < ApplicationController
       flash[:success] = t(".success")
       redirect_to @author
     else
-      flash[:warning] = t(".fail")
+      flash[:danger] = t(".fail")
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,7 +31,7 @@ class AuthorsController < ApplicationController
     if @author.update(author_params)
       redirect_to @author, notice: t(".success")
     else
-      flash[:warning] = t(".fail")
+      flash[:danger] = t(".fail")
       render :edit, status: :unprocessable_entity
     end
   end
@@ -39,7 +39,7 @@ class AuthorsController < ApplicationController
   def destroy
     @author = Author.find(params[:id])
     if @author.books.exists?
-      flash[:warning] = t(".fail")
+      flash[:danger] = t(".fail")
       redirect_to authors_path
     else
       @author.destroy

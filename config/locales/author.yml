@@ -18,9 +18,11 @@
 
       create:
         success: Autor cadastrado com sucesso
+        fail: Não foi possivel cadastrar o autor
 
       update:
         success: Autor atualizado com sucesso
+        fail: Não foi possivel atualizar o autor
 
       destroy:
         success: Autor excluido com sucesso
