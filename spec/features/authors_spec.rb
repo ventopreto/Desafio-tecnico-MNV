@@ -1,14 +1,16 @@
 require "rails_helper"
 
 RSpec.feature "Authors", type: :feature do
-  let!(:author) { Author.create(name: "Exemplo Autor") }
-  let!(:book) { Book.create(title: "Livro Exemplo", author: author) }
-  let!(:author_without_book) { Author.create(name: "Autor Generico") }
+  let!(:author_with_book) { create(:author, :with_book) }
+  let!(:author_without_book) { create(:author, :camilo) }
 
+
+  let!(:user) { create(:user, :maria) }
+  let(:user_with_rental) { create(:user, :with_rental) }
   it "visualizar a página de listagem de autores" do
     visit authors_path
     expect(page).to have_content("Autores")
-    expect(page).to have_content(author.name)
+    expect(page).to have_content(author_with_book.name)
   end
 
   it "cadastrar um novo autor" do
@@ -29,7 +31,7 @@ RSpec.feature "Authors", type: :feature do
   end
 
   it "atualizar um autor existente" do
-    visit edit_author_path(author)
+    visit edit_author_path(author_with_book)
     fill_in "author_name", with: "Autor Editado"
     click_button "Atualizar"
 
@@ -38,7 +40,7 @@ RSpec.feature "Authors", type: :feature do
   end
 
   it "não foi possivel atualizar um novo autor" do
-    visit edit_author_path(author)
+    visit edit_author_path(author_with_book)
     fill_in "author_name", with: ""
     click_button "Atualizar"
 
@@ -54,10 +56,10 @@ RSpec.feature "Authors", type: :feature do
   end
 
   it "não foi possivel excluir um autor com livros associados" do
-    visit author_path(author)
+    visit author_path(author_with_book)
     click_button "Excluir"
 
     expect(page).to have_content("Autor não pode ser excluido, pois existem livros associados")
-    expect(page).to have_content(author.name)
+    expect(page).to have_content(author_with_book.name)
   end
 end

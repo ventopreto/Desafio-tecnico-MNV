@@ -2,6 +2,7 @@ require "spec_helper"
 require "shoulda/matchers"
 require "simplecov"
 require "capybara"
+require "factory_bot_rails"
 
 SimpleCov.start "rails" do
   add_filter "jobs"
@@ -38,6 +39,7 @@ Capybara.register_driver :selenium_firefox_remote do |app|
 end
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   config.fixture_path = "#{Rails.root.join("spec/fixtures")}"
 
   config.use_transactional_fixtures = true
