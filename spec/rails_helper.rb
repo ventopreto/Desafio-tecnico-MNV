@@ -1,6 +1,7 @@
 require "spec_helper"
 require "shoulda/matchers"
 require "simplecov"
+require "capybara"
 
 SimpleCov.start "rails" do
   add_filter "jobs"
@@ -23,6 +24,17 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+Capybara.server_host = "0.0.0.0"
+Capybara.app_host = "http://#{ENV.fetch("APP_HOST", `hostname`.strip&.downcase || "0.0.0.0")}"
+
+Capybara.register_driver :selenium_firefox_remote do |app|
+  Capybara::Selenium::Driver.new(app,
+    browser: :remote,
+    url: "http://selenium:4444/wd/hub",
+    capabilities: :firefox)
+  Capybara.javascript_driver = :selenium_firefox_remote
 end
 
 RSpec.configure do |config|
