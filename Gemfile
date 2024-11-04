@@ -10,7 +10,7 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
-
+gem "i18n", "~> 1.14.6"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
@@ -19,9 +19,11 @@ group :development, :test do
   gem "pry-byebug"
   gem "rspec-rails", "~> 4.1.2"
   gem "ruby-lsp"
+  gem "factory_bot_rails"
 end
 
 group :test do
+  gem "capybara"
   gem "shoulda-matchers", "~> 6.0"
   gem "simplecov", require: false
 end

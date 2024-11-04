@@ -1,0 +1,13 @@
+  <% if @authors.empty? %>
+ <p>'Nenhum Autor Cadastrado'</p>
+  <% else %>
+  <% @authors.each do |author| %>
+<div class="card rounded-circle border border-dark" style="width: 18rem;">
+</div>
+  <div class="card-body">
+    <h5>Nome: <%= link_to author.name, author_path(author)%> </h5>
+  </div>
+ <% end %>
+<% end %>
+<%= link_to t('links.create'), new_author_path, class:"btn btn-outline-dark btn-sm"%>
+<%= link_to t('links.back'), root_path, class:"btn btn-outline-dark btn-sm"%>
