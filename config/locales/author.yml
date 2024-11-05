@@ -35,6 +35,7 @@
         fail: Autor não pode ser excluido, pois existem livros associados
 
       index:
+        name: Nome
         no_authors: Nenhum Author Cadastrado
         title: Lista de Autores Cadastrados
 

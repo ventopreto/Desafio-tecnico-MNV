@@ -2,13 +2,13 @@
   <div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
     <div class="card-body text-justify mx-auto">
       <h5 class="card-title">Titulo: <%= @book.title %></h5>
-      <h5 class="card-title">Sinopse: <%= @book.synopsis  %></h5>
-      <h5 class="card-title">Ano de Publicação: <%= @book.published_at   %></h5>
+      <h5 class="card-title">Sinopse: <%= @book.synopsis %></h5>
+      <h5 class="card-title">Ano de Publicação: <%= @book.published_at %></h5>
     </div>
   </div>
 
 <div class="inner-flex">
-  <%= link_to t('links.edit'), edit_book_path(@book), class:"btn btn-light" %>
-  <%= button_to t('links.delete'), @book, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este livro?' }, class: 'btn btn-danger' %>
-  <%= link_to t('links.back'), books_path, class:"btn btn-outline-dark" %>
+  <%= link_to t("links.edit"), edit_book_path(@book), class: "btn btn-light" %>
+  <%= button_to t("links.delete"), @book, method: :delete, data: {confirm: "Você tem certeza que deseja excluir este livro?"}, class: "btn btn-danger" %>
+  <%= link_to t("links.back"), books_path, class: "btn btn-outline-dark" %>
 </div>

@@ -1,5 +1,7 @@
 ---
 pt-BR:
+  home:
+    title: Boas vindas ao Sistema de Gerenciamento de Biblioteca com Empréstimo de Livros
   activerecord:
     attributes:
       rental:
@@ -16,6 +18,7 @@ pt-BR:
         author_id: Nome do Autor
       author:
         name: Nome
+        biography: Biografia
       user:
         name: Nome do Usuário
         email: E-mail

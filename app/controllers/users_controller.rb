@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def index
     @users = User.all
@@ -40,12 +42,11 @@ class UsersController < ApplicationController
   def destroy
     if @user.rentals.exists?
       flash[:danger] = t(".fail")
-      redirect_to users_path
     else
       @user.destroy
       flash[:success] = t(".success")
-      redirect_to users_path
     end
+    redirect_to users_path
   end
 
   private

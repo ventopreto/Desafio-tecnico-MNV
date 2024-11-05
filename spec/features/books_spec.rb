@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.feature "books", type: :feature do
   let!(:book_without_rental) { create(:book, :amor_de_perdicao) }
   let!(:book_with_rental) { create(:book, :with_rental) }
-
 
   it "visualizar a página de listagem de livros" do
     visit books_path
@@ -23,8 +24,8 @@ RSpec.feature "books", type: :feature do
     visit new_book_path
     fill_in "book_title", with: "Novo Livros"
     fill_in "book_synopsis", with: "usuario@gmail.com"
-    fill_in 'book_published_at', with: '1933-01-01'
-    select 'Fernando Pessoa', from: 'book_author_id'
+    fill_in "book_published_at", with: "1933-01-01"
+    select "Fernando Pessoa", from: "book_author_id"
 
     click_button "Cadastrar"
 
@@ -44,8 +45,8 @@ RSpec.feature "books", type: :feature do
     visit edit_book_path(book_without_rental)
     fill_in "book_title", with: "Livros Editado"
     fill_in "book_synopsis", with: "blabla e tal"
-    fill_in 'book_published_at', with: '1933-01-01'
-    select 'Fernando Pessoa', from: 'book_author_id'
+    fill_in "book_published_at", with: "1933-01-01"
+    select "Fernando Pessoa", from: "book_author_id"
     click_button "Atualizar"
 
     expect(page).to have_content("Livro atualizado com sucesso")

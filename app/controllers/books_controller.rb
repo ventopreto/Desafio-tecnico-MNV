@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :set_authors, only: [:new, :create, :edit, :update]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_authors, only: %i[new create edit update]
+  before_action :set_book, only: %i[show edit update destroy]
 
   def index
     @books = Book.all
@@ -40,12 +42,11 @@ class BooksController < ApplicationController
   def destroy
     if @book.rental
       flash[:danger] = t(".fail")
-      redirect_to books_path
     else
       @book.destroy
       flash[:success] = t(".success")
-      redirect_to books_path
     end
+    redirect_to books_path
   end
 
   private

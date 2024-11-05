@@ -1,37 +1,37 @@
 <div class="container">
-  <% if @rental.errors.any? %>
+  <% if rental.errors.any? %>
     <div id="error-explanation">
-      <h5><%= t('rentals.errors.title', count: @rental.errors.count) %></h5>
-      <p class="error-message"><%= @rental.errors.full_messages.to_sentence %></p>
+      <h5><%= t("rentals.errors.title", count: rental.errors.count) %></h5>
+      <p class="error-message"><%= rental.errors.full_messages.to_sentence %></p>
     </div>
   <% end %>
 
   <div class="card mx-auto" style="width: 15rem;">
     <div class="card-body">
-      <%= form_with(model: @rental, local: true) do |f| %>
+      <%= form_with(model: rental, local: true) do |f| %>
 
         <div class="form-group">
-          <%= f.label :start_date, t('.label.start_date'), class: "form_label" %>
-          <%= f.date_field :start_date, placeholder: t('.placeholder.start_date'), max: Date.today, class: "form_controll" %>
-          <%= error_tag @rental, :start_date %>
+          <%= f.label :start_date, t(".label.start_date"), class: "form_label" %>
+          <%= f.date_field :start_date, placeholder: t(".placeholder.start_date"), max: Date.today, class: "form_controll" %>
+          <%= error_tag rental, :start_date %>
         </div>
 
         <div class="form-group">
-          <%= f.label :user_id, t('.label.user_id'), class: "form_label" %>
-          <%= f.select :user_id, options_from_collection_for_select(users || [], :id, :name, @rental.user_id), class: "form_controll" %>
-          <%= error_tag @rental, :user_id %>
+          <%= f.label :user_id, t(".label.user_id"), class: "form_label" %>
+          <%= f.select :user_id, options_from_collection_for_select(users || [], :id, :name, rental.user_id), class: "form_controll" %>
+          <%= error_tag rental, :user_id %>
         </div>
 
         <div class="form-group">
-          <%= f.label :book_id, t('.label.book_id'), class: "form_label" %>
-          <%= f.select :book_id, options_from_collection_for_select(books || [], :id, :title, @rental.book_id), class: "form_controll" %>
-          <%= error_tag @rental, :book_id %>
-          <%= error_tag @rental, :no_active_rental_for_book %>
+          <%= f.label :book_id, t(".label.book_id"), class: "form_label" %>
+          <%= f.select :book_id, options_from_collection_for_select(books || [], :id, :title, rental.book_id), class: "form_controll" %>
+          <%= error_tag rental, :book_id %>
+          <%= error_tag rental, :no_active_rental_for_book %>
         </div>
 
         <div class="input-group-btn">
           <%= f.submit button_text, class: "btn btn-outline-success btn-sm mt-2" %>
-          <%= link_to t('links.back'), @rental.persisted? ? rental_path(@rental) : rentals_path, class: "btn btn-outline-dark btn-sm mt-2" %>
+          <%= link_to t("links.back"), rental.persisted? ? rental_path(rental) : rentals_path, class: "btn btn-outline-dark btn-sm mt-2" %>
         </div>
       <% end %>
     </div>

@@ -35,3 +35,8 @@
       edit:
         title: Formulário de Atualização de Livros
 
+      index:
+        no_books: Nenhum Livro Cadastrado
+        title: Titulo
+
+

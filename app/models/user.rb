@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :rentals
 
@@ -9,7 +11,8 @@ end
 
 def validate_email_format
   return if email.blank?
-  unless email.match?(URI::MailTo::EMAIL_REGEXP)
-    errors.add(:email, "deve ser um formato válido")
-  end
+
+  return if email.match?(URI::MailTo::EMAIL_REGEXP)
+
+  errors.add(:email, "deve ser um formato válido")
 end
