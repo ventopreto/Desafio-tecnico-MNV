@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :book
@@ -19,9 +21,9 @@ end
 private
 
 def no_active_rental_for_book
-  if Rental.exists?(book_id: book_id, status: "active")
-    errors.add(:base, I18n.t("rentals.errors.already_rented"))
-  end
+  return unless Rental.exists?(book_id:, status: "active")
+
+  errors.add(:base, I18n.t("rentals.errors.already_rented"))
 end
 
 def end_date_present?
@@ -29,7 +31,7 @@ def end_date_present?
 end
 
 def end_date_after_start_date
-  if end_date < start_date
-    errors.add(:end_date, I18n.t("rentals.errors.end_date>start_date"))
-  end
+  return unless end_date < start_date
+
+  errors.add(:end_date, I18n.t("rentals.errors.end_date>start_date"))
 end

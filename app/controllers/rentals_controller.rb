@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:show, :edit, :update, :destroy]
-  before_action :set_users, only: [:new, :edit]
-  before_action :set_books, only: [:new, :edit]
+  before_action :set_rental, only: %i[show edit update destroy]
+  before_action :set_users, only: %i[new edit]
+  before_action :set_books, only: %i[new edit]
 
   def index
     @rentals = Rental.all.active
@@ -39,9 +41,8 @@ class RentalsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if @rental.active?
-      @rental.update(status: "completed", end_date: Date.today)
+      @rental.update(status: "completed", end_date: Time.zone.today)
       flash[:success] = t(".success")
     else
       flash[:success] = t(".fail")

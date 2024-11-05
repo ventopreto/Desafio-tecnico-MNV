@@ -1,14 +1,14 @@
   <% if @rentals.empty? %>
- <p><%= t('.no_rent') %></p>
+ <p><%= t(".no_rent") %></p>
   <% else %>
-    <h5><%= t('.title') %> </h5>
+    <h5><%= t(".title") %> </h5>
   <% @rentals.each do |rental| %>
 <div class="card rounded-circle border border-dark" style="width: 18rem;">
 </div>
   <div class="card-body">
-    <h5>Titulo: <%= link_to rental.book.title, rental_path(rental)%> </h5>
+    <h5><%= "#{t(".book_title")}: " %><%= link_to rental.title, rental_path(rental) %> </h5>
   </div>
  <% end %>
 <% end %>
-<%= link_to t('links.create'), new_rental_path, class:"btn btn-outline-dark btn-sm"%>
-<%= link_to t('links.back'), root_path, class:"btn btn-outline-dark btn-sm"%>
+<%= link_to t("links.create"), new_rental_path, class: "btn btn-outline-dark btn-sm" %>
+<%= link_to t("links.back"), root_path, class: "btn btn-outline-dark btn-sm" %>

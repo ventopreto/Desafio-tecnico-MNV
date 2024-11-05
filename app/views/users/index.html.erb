@@ -5,9 +5,9 @@
 <div class="card rounded-circle border border-dark" style="width: 18rem;">
 </div>
   <div class="card-body">
-    <h5>Nome: <%= link_to user.name, user_path(user)%> </h5>
+    <h5>Nome: <%= link_to user.name, user_path(user) %> </h5>
   </div>
  <% end %>
 <% end %>
-<%= link_to t('links.create'), new_user_path, class:"btn btn-outline-dark btn-sm"%>
-<%= link_to t('links.back'), root_path, class:"btn btn-outline-dark btn-sm"%>
+<%= link_to t("links.create"), new_user_path, class: "btn btn-outline-dark btn-sm" %>
+<%= link_to t("links.back"), root_path, class: "btn btn-outline-dark btn-sm" %>

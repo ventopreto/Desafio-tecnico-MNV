@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     name { "Usuario Genérico" }
@@ -5,7 +7,7 @@ FactoryBot.define do
 
     trait :with_rental do
       after(:create) do |user|
-        create(:rental, user: user)
+        create(:rental, user:)
       end
     end
 

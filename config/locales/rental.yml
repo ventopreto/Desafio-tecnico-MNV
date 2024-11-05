@@ -53,6 +53,7 @@
       index:
         no_rent: Nenhum Emprestimo Ativo
         title: Lista de emprestimos realizados
+        book_title: Titulo
 
       edit:
         title: Formulário de Atualização de Livros

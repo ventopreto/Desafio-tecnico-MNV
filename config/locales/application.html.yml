@@ -1,0 +1,13 @@
+---
+  pt-BR:
+    layouts:
+      application:
+        title: SGBEL
+        authors: Autores
+        books: Livros
+        users: Usuários
+        rentals: Emprestimos
+        copyright: © 2024 Copyright
+        twitter: Twitter
+        instagram: Instagram
+        facebook: Facebook
