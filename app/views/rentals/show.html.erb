@@ -1,0 +1,56 @@
+
+  <div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
+    <div class="card-body text-justify mx-auto">
+      <div class="card-title d-flex align-items-center">
+       <h5 class="me-2"><%= "#{t('.start_date')}: " %></h5>
+       <span><%= @rental.start_date %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.start_date')}: " %></h5>
+        <span><%= @rental.start_date %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.end_date')}: " %></h5>
+        <span><%= @rental.end_date %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.user_id')}: " %></h5>
+        <span><%= @rental.name %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.email')}: " %></h5>
+        <span><%= @rental.email %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.book_id')}: " %></h5>
+        <span><%= @rental.title %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.synopsis')}: " %></h5>
+        <span><%= @rental.synopsis %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.published_at')}: " %></h5>
+        <span><%= @rental.published_at %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.status')}: " %></h5>
+        <span><%= @rental.status %></span>
+      </div>
+    </div>
+  </div>
+
+
+<div class="inner-flex">
+  <%= link_to t('links.edit'), edit_rental_path(@rental), class:"btn btn-light" %>
+  <%= button_to t('links.return'), @rental, method: :delete, class: 'btn btn-danger' %>
+  <%= link_to t('links.back'), rentals_path, class:"btn btn-outline-dark" %>
+</div>

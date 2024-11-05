@@ -1,6 +1,24 @@
 ---
 pt-BR:
   activerecord:
+    attributes:
+      rental:
+        start_date: Data de inicio do emprestimo
+        end_date: Data de fim do emprestimo
+        book: Nome do livro
+        user: Nome do usuário
+        book_id: Nome do livro
+        user_id: Nome do usuário
+      book:
+        title: Titulo
+        synopsis: Sinopse
+        published_at: Ano de Publicação
+        author_id: Nome do Autor
+      author:
+        name: Nome
+      user:
+        name: Nome do Usuário
+        email: E-mail
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
