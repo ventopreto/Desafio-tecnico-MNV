@@ -1,0 +1,13 @@
+  <% if @books.empty? %>
+ <p>Nenhum Livro Cadastrado</p>
+  <% else %>
+  <% @books.each do |book| %>
+<div class="card rounded-circle border border-dark" style="width: 18rem;">
+</div>
+  <div class="card-body">
+    <h5>Titulo: <%= link_to book.title, book_path(book)%> </h5>
+  </div>
+ <% end %>
+<% end %>
+<%= link_to t('links.create'), new_book_path, class:"btn btn-outline-dark btn-sm"%>
+<%= link_to t('links.back'), root_path, class:"btn btn-outline-dark btn-sm"%>
