@@ -1,16 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>SGBEL</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header>
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ps-3">
+        <%= link_to 'SGBEL', root_path,  class:"logo" %>
+          <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+
+            <li class="nav-item active">
+              <%= link_to 'Autores', authors_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to 'Livros', books_path, class:"nav-link" %>
+            </li>
+
+            <li class="nav-item active">
+              <%= link_to 'Usuários', users_path, class:"nav-link" %>
+            </li>
+
+
+            <li class="nav-item active">
+              <%= link_to 'Emprestimos', rentals_path, class:"nav-link" %>
+            </li>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+    <% flash.each do |name, message| %>
+      <%= content_tag :div, message, class: 'alert alert-' + name %>
+    <% end %>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4 pb-0">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1 " href="#!" role="button">Facebook</a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">Instagram</a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button" >Twitter</a>
+    </section>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2024 Copyright:
+    <a class="text-white" >SGBEL</a>
+  </div>
+</footer>
   </body>
 </html>

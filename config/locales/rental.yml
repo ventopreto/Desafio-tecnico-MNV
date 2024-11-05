@@ -1,0 +1,59 @@
+---
+  pt-BR:
+    links:
+      back: Voltar
+      edit: Editar
+      return: Devolver
+      update: Atualizar
+      create: Cadastrar
+    rentals:
+      errors:
+        end_date>start_date: deve ser posterior à data de início
+        already_rented: Já existe um emprestimo ativo para este livro.
+        title:
+          one: "%{count} erro proibiu este empréstimo de ser realizado:"
+          other: "%{count} erros proibiram este empréstimo de ser realizado:"
+      form:
+        label:
+          start_date: Data de Inicio
+          end_date: Data de Fim
+          status: Ano de Publicação
+          user_id: Nome do usuário
+          book_id: Nome do livro
+        placeholder:
+          title: Livro Genérico
+          synopsis: Sinopse
+
+      new:
+        title: Formulário de Emprestimo
+
+      create:
+        success: Empréstimo realizado com sucesso
+        fail: Não foi possivel realizar o empréstimo
+
+      update:
+        success: Empréstimo atualizado com sucesso
+        fail: Não foi possivel atualizar o empréstimo
+
+      destroy:
+        success: livro devolvido com sucesso
+        fail: Não foi possivel devolver o livro
+
+      show:
+        start_date: Data de Inicio
+        end_date: Data de Fim
+        status: Ano de Publicação
+        user_id: Nome do usuário
+        email: E-mail do usuário
+        book_id: Nome do livro
+        status: status
+        synopsis: Sinopse
+        published_at: Ano de Publicação
+
+      index:
+        no_rent: Nenhum Emprestimo Ativo
+        title: Lista de emprestimos realizados
+
+      edit:
+        title: Formulário de Atualização de Livros
+
