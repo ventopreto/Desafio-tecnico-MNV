@@ -1,0 +1,34 @@
+<div class="container">
+  <% if @book.errors.any? %>
+  <div id="error-explanation">
+<% end %>
+
+<div class="card mx-auto" style="width: 15rem;">
+  <div class="card-body">
+    <%= form_with(model: @book, local: true) do |f| %>
+        <%= f.label :title, t('.label.title'), class:"form_label" %>
+            <%= error_tag @book, :title %>
+        <%= f.text_field :title, placeholder: t('.placeholder.title') , class:"form_controll" %>
+
+        <%= f.label :synopsis , t('.label.synopsis'), class:"form_label" %>
+            <%= error_tag @book, :synopsis  %>
+        <%= f.text_area :synopsis , placeholder: t('.placeholder.synopsis') , class:"form_controll" %>
+
+        <%= f.label :published_at, t('.label.published_at'), class:"form_label" %>
+            <%= error_tag @book, :published_at %>
+        <%= f.date_field :published_at, placeholder: t('.placeholder.published_at') , class:"form_controll" %>
+
+        <%= f.label :author_id, t('.label.author_id'), class:"form_label" %>
+            <%= error_tag @book, :author_id %>
+        <%= f.select :author_id, options_from_collection_for_select(authors, :id, :name, @book.author_id), class:"form_controll" %>
+
+        <div class="input-group-btn">
+          <%= f.submit button_text,  class:"btn btn-outline-success btn-sm mt-2" %>
+          <% if @book.persisted? %>
+            <%= link_to t('links.back'), book_path(@book), class: "btn btn-outline-dark btn-sm mt-2" %>
+          <% else %>
+            <%= link_to t('links.back'), books_path, class: "btn btn-outline-dark btn-sm mt-2" %>
+          <% end %>
+      </div>
+  <% end %>
+</div>

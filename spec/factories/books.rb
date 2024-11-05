@@ -5,6 +5,12 @@ FactoryBot.define do
     published_at { Date.new(1933) }
     association :author, factory: :author
 
+    trait :with_rental do
+      after(:create) do |book|
+        create(:rental, book: book)
+      end
+    end
+
     trait :amor_de_perdicao do
       title { "Amor de Perdição" }
       synopsis { "Um dos maiores clássicos do romantismo português." }
