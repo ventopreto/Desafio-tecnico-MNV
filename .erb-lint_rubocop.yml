@@ -6,3 +6,4 @@ Layout/InitialIndentation:
 
 Lint/UselessAssignment:
   Enabled: false
+  
