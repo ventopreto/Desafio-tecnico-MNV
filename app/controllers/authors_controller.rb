@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthorsController < ApplicationController
   def index
     @authors = Author.all
@@ -40,12 +42,11 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     if @author.books.exists?
       flash[:danger] = t(".fail")
-      redirect_to authors_path
     else
       @author.destroy
       flash[:success] = t(".success")
-      redirect_to authors_path
     end
+    redirect_to authors_path
   end
 
   private

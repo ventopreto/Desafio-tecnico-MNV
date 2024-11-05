@@ -1,10 +1,21 @@
 <div class="container">
-<div class="card mx-auto" style="width: 15rem;">
-  <div class="card-body">
-    <%= form_with(model: @author, local: true) do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error-explanation">
+      <h5><%= t('authors.errors.title', count: @author.errors.count) %></h5>
+      <p class="error-message"><%= @author.errors.full_messages.to_sentence %></p>
+    </div>
+  <% end %>
+
+  <div class="card mx-auto" style="width: 15rem;">
+    <div class="card-body">
+      <%= form_with(model: @author, local: true) do |f| %>
         <%= f.label :name, t('.label.name'), class:"form_label" %>
             <%= error_tag @author, :name %>
         <%= f.text_field :name, placeholder: t('.placeholder.name') , class:"form_controll" %>
+
+        <%= f.label :name, t('.label.biography'), class:"form_label" %>
+            <%= error_tag @author, :biography %>
+        <%= f.text_field :biography, placeholder: t('.placeholder.biography') , class:"form_controll" %>
 
         <div class="input-group-btn">
           <%= f.submit button_text,  class:"btn btn-outline-success btn-sm mt-2" %>
@@ -13,6 +24,8 @@
           <% else %>
             <%= link_to t('links.back'), authors_path, class: "btn btn-outline-dark btn-sm mt-2" %>
           <% end %>
-      </div>
-  <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
