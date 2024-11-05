@@ -1,0 +1,27 @@
+<div class="container">
+
+  <% if @user.errors.any? %>
+  <div id="error-explanation">
+<% end %>
+
+<div class="card mx-auto" style="width: 15rem;">
+  <div class="card-body">
+    <%= form_with(model: @user, local: true) do |f| %>
+        <%= f.label :name, t('.label.name'), class:"form_label" %>
+            <%= error_tag @user, :name %>
+        <%= f.text_field :name, placeholder: t('.placeholder.name') , class:"form_controll" %>
+
+        <%= f.label :email, t('.label.email'), class:"form_label" %>
+            <%= error_tag @user, :email %>
+        <%= f.text_field :email, placeholder: t('.placeholder.email') , class:"form_controll" %>
+
+        <div class="input-group-btn">
+          <%= f.submit button_text,  class:"btn btn-outline-success btn-sm mt-2" %>
+          <% if @user.persisted? %>
+            <%= link_to t('links.back'), user_path(@user), class: "btn btn-outline-dark btn-sm mt-2" %>
+          <% else %>
+            <%= link_to t('links.back'), users_path, class: "btn btn-outline-dark btn-sm mt-2" %>
+          <% end %>
+      </div>
+  <% end %>
+</div>
