@@ -10,3 +10,4 @@ linters:
       inherit_from: .erb-lint_rubocop.yml
       AllCops:
         DisabledByDefault: true
+        
