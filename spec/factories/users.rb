@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    name { "Usuario Generico" }
+    name { "Usuario Genérico" }
     email { "usuario@example.com" }
 
     trait :with_rental do
