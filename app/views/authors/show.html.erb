@@ -1,12 +1,23 @@
 
   <div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
     <div class="card-body text-justify mx-auto">
-      <h5 class="card-title">Nome: <%= @author.name %></h5>
+
+      <div class="card-title d-flex align-items-center">
+       <h5 class="me-2"><%= "#{t('.name')}: " %></h5>
+       <span><%= @author.name %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t('.biography')}: " %></h5>
+        <span><%= @author.biography %></span>
+      </div>
+    </div>
+  </div>
     </div>
   </div>
 
 <div class="inner-flex">
   <%= link_to t('links.edit'), edit_author_path(@author), class:"btn btn-outline-dark" %>
-  <%= button_to  t('links.delete'), @author, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este autor?' }, class: 'btn btn-danger' %>
+  <%= button_to  t('links.delete'), @author, method: :delete, class: 'btn btn-danger' %>
   <%= link_to t('links.back'), authors_path, class:"btn btn-outline-dark" %>
 </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :author do
     name { "Fernando Pessoa" }
@@ -5,7 +7,7 @@ FactoryBot.define do
 
     trait :with_book do
       after(:create) do |author|
-        create(:book, author: author)
+        create(:book, author:)
       end
     end
 

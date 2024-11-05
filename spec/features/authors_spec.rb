@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.feature "Authors", type: :feature do
   let!(:author_with_book) { create(:author, :with_book) }
   let!(:author_without_book) { create(:author, :camilo) }
-
 
   let!(:user) { create(:user, :maria) }
   let(:user_with_rental) { create(:user, :with_rental) }
