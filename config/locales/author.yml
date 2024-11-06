@@ -43,6 +43,7 @@
         author: Autor
         name: Nome
         biography: Biografia
+        books: Livros
 
       edit:
         title: Formulário de Atualização de Autor

@@ -9,4 +9,8 @@ class Book < ApplicationRecord
 
   delegate :status, :start_date, :translate_status, to: :rental, allow_nil: true
   delegate :name, :biography, to: :author
+
+  def title_with_status
+    rental&.active? ? "#{title} (Emprestado)" : title
+  end
 end

@@ -24,7 +24,7 @@
 
         <div class="form-group">
           <%= f.label :book_id, t(".label.book_id"), class: "form_label" %>
-          <%= f.select :book_id, options_from_collection_for_select(books || [], :id, :title, rental.book_id), class: "form_controll" %>
+          <%= f.select :book_id, options_from_collection_for_select(books || [], :id, :title_with_status, rental.book_id), class: "form_controll" %>
           <%= error_tag rental, :book_id %>
           <%= error_tag rental, :no_active_rental_for_book %>
         </div>
