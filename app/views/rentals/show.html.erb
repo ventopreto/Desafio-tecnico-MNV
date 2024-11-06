@@ -2,23 +2,20 @@
   <div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
     <div class="card-body text-justify mx-auto">
       <div class="card-title d-flex align-items-center">
-       <h5 class="me-2"><%= "#{t(".start_date")}: " %></h5>
-       <span><%= @rental.start_date %></span>
-      </div>
-
-      <div class="card-title d-flex align-items-center">
         <h5 class="me-2"><%= "#{t(".start_date")}: " %></h5>
         <span><%= @rental.start_date %></span>
       </div>
 
+      <% if @rental.end_date.present? %>
       <div class="card-title d-flex align-items-center">
         <h5 class="me-2"><%= "#{t(".end_date")}: " %></h5>
         <span><%= @rental.end_date %></span>
       </div>
+      <% end %>
 
       <div class="card-title d-flex align-items-center">
         <h5 class="me-2"><%= "#{t(".user_id")}: " %></h5>
-        <span><%= @rental.name %></span>
+        <%= link_to @rental.name, user_path(@rental.user_id) %>
       </div>
 
       <div class="card-title d-flex align-items-center">
@@ -28,7 +25,7 @@
 
       <div class="card-title d-flex align-items-center">
         <h5 class="me-2"><%= "#{t(".book_id")}: " %></h5>
-        <span><%= @rental.title %></span>
+        <%= link_to @rental.title, book_path(@rental.book_id) %>
       </div>
 
       <div class="card-title d-flex align-items-center">
@@ -43,7 +40,7 @@
 
       <div class="card-title d-flex align-items-center">
         <h5 class="me-2"><%= "#{t(".status")}: " %></h5>
-        <span><%= @rental.status %></span>
+        <span><%= @rental.translate_status %></span>
       </div>
     </div>
   </div>

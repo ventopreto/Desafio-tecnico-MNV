@@ -1,7 +1,10 @@
 <div class="container">
   <% if book.errors.any? %>
-  <div id="error-explanation">
-<% end %>
+    <div id="error-explanation">
+      <h5><%= t("books.errors.title", count: book.errors.count) %></h5>
+      <p class="error-message"><%= book.errors.full_messages.to_sentence %></p>
+    </div>
+  <% end %>
 
 <div class="card mx-auto" style="width: 15rem;">
   <div class="card-body">

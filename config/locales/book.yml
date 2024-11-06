@@ -16,6 +16,10 @@
         placeholder:
           title: Livro Genérico
           synopsis: Sinopse
+      errors:
+        title:
+          one: "%{count} erro proibiu este livro de ser cadastrado:"
+          other: "%{count} erros proibiram este livro de ser cadastrado:"
 
       new:
         title: Formulário de Cadastro de Livros
@@ -39,4 +43,10 @@
         no_books: Nenhum Livro Cadastrado
         title: Titulo
 
-
+      show:
+        title: Titulo
+        synopsis: Sinopse
+        published_at: Ano de Publicação
+        status: status
+        name: Nome do Autor
+        biography: Biografia

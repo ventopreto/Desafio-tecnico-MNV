@@ -11,6 +11,9 @@ pt-BR:
         user: Nome do usuário
         book_id: Nome do livro
         user_id: Nome do usuário
+        status:
+          completed: Devolvido
+          active: Emprestado
       book:
         title: Titulo
         synopsis: Sinopse

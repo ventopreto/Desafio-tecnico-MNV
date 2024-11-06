@@ -15,8 +15,8 @@
           other: "%{count} erros proibiram este empréstimo de ser realizado:"
       form:
         label:
-          start_date: Data de Inicio
-          end_date: Data de Fim
+          start_date: Data de inicio do emprestimo
+          end_date: Data de fim do emprestimo
           status: Ano de Publicação
           user_id: Nome do usuário
           book_id: Nome do livro
@@ -40,8 +40,8 @@
         fail: Não foi possivel devolver o livro
 
       show:
-        start_date: Data de Inicio
-        end_date: Data de Fim
+        start_date: Data de inicio do emprestimo
+        end_date: Data de fim do emprestimo
         status: Ano de Publicação
         user_id: Nome do usuário
         email: E-mail do usuário
