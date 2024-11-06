@@ -1,20 +1,27 @@
 
-  <div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
-    <div class="card-body text-justify mx-auto">
+<div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
+  <div class="card-body text-justify mx-auto">
 
-      <div class="card-title d-flex align-items-center">
-       <h5 class="me-2"><%= "#{t(".name")}: " %></h5>
-       <span><%= @author.name %></span>
-      </div>
+    <div class="card-title d-flex align-items-center">
+      <h5 class="me-2"><%= "#{t(".name")}: " %></h5>
+      <span><%= @author.name %></span>
+    </div>
 
-      <div class="card-title d-flex align-items-center">
-        <h5 class="me-2"><%= "#{t(".biography")}: " %></h5>
-        <span><%= @author.biography %></span>
-      </div>
+    <div class="card-title d-flex align-items-center">
+      <h5 class="me-2"><%= "#{t(".biography")}: " %></h5>
+      <span><%= @author.biography %></span>
+    </div>
+
+    <div class="card-title d-flex align-items-center">
+      <h5 class="me-2"><%= "#{t(".books")}: " %></h5>
+      <ul>
+        <% @author.books.each do |book| %>
+          <li><%= link_to book.title, book_path(book) %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
-    </div>
-  </div>
+</div>
 
 <div class="inner-flex">
   <%= link_to t("links.edit"), edit_author_path(@author), class: "btn btn-outline-dark" %>
