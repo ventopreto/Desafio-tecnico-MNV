@@ -1,11 +1,12 @@
   <% if @users.empty? %>
- <p>Nenhum Usuario Cadastrado</p>
+    <p><%= t(".no_user") %></p>
   <% else %>
+    <h5><%= t(".title") %> </h5>
   <% @users.each do |user| %>
 <div class="card rounded-circle border border-dark" style="width: 18rem;">
 </div>
   <div class="card-body">
-    <h5>Nome: <%= link_to user.name, user_path(user) %> </h5>
+    <h5><%= "#{t(".name")}: " %> <%= link_to user.name, user_path(user) %> </h5>
   </div>
  <% end %>
 <% end %>

@@ -15,6 +15,11 @@
           name: Usuário Genérico
           email: exemplo@gmail.com
 
+      index:
+        no_user: Nenhum Usuário Cadastrado
+        title: Lista de usuários Cadastrados
+        name: Nome
+
       new:
         title: Formulário de Cadastro de Usuário
 
@@ -22,11 +27,9 @@
         success: Usuário cadastrado com sucesso
         fail: Não foi possivel cadastrar o usuário
 
-
       update:
         success: Usuário atualizado com sucesso
         fail: Não foi possivel atualizar o usuário
-
 
       destroy:
         success: Usuário excluido com sucesso
@@ -38,3 +41,9 @@
           name: Nome do Usuário
         placeholder:
           name: Usuário Genérico
+
+      show:
+        email: E-mail
+        name: Nome
+        rentals: Emprestimos Ativos
+
