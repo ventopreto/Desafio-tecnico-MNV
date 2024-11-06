@@ -6,4 +6,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :author_id, presence: true
+
+  delegate :status, :start_date, :translate_status, to: :rental, allow_nil: true
+  delegate :name, :biography, to: :author
 end

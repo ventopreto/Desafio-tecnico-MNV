@@ -16,6 +16,10 @@ class Rental < ApplicationRecord
   after_initialize do
     self.status ||= "active"
   end
+
+  def translate_status
+    I18n.t("activerecord.attributes.rental.status.#{status}")
+  end
 end
 
 private

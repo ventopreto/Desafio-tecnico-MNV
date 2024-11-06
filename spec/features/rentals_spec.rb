@@ -22,7 +22,7 @@ RSpec.feature "rentals", type: :feature do
     expect(page).to have_content(rental.title)
     expect(page).to have_content(rental.synopsis)
     expect(page).to have_content(rental.published_at)
-    expect(page).to have_content(rental.status)
+    expect(page).to have_content(rental.translate_status)
   end
 
   it "cadastrar um novo emprestimo" do
