@@ -1,8 +1,24 @@
 
   <div class="card border border-5 mt-3 mx-auto" style="width: 27rem;">
     <div class="card-body text-justify mx-auto">
-      <h5 class="card-title">Nome: <%= @user.name %></h5>
-      <h5 class="card-title">E-mail: <%= @user.email %></h5>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t(".name")}: " %></h5>
+        <span><%= @user.name %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t(".email")}: " %></h5>
+        <span><%= @user.email %></span>
+      </div>
+
+      <div class="card-title d-flex align-items-center">
+        <h5 class="me-2"><%= "#{t(".rentals")}: " %></h5>
+        <ul>
+          <% @user.rentals.active.each do |rental| %>
+            <li><%= link_to rental.title, rental_path(rental) %></li>
+          <% end %>
+        </ul>
     </div>
   </div>
 

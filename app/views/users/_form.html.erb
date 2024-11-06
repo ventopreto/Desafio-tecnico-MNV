@@ -1,27 +1,37 @@
 <div class="container">
-
   <% if user.errors.any? %>
-  <div id="error-explanation">
-<% end %>
-
-<div class="card mx-auto" style="width: 15rem;">
-  <div class="card-body">
-    <%= form_with(model: user, local: true) do |f| %>
-        <%= f.label :name, t(".label.name"), class: "form_label" %>
-            <%= error_tag user, :name %>
-        <%= f.text_field :name, placeholder: t(".placeholder.name"), class: "form_controll" %>
-
-        <%= f.label :email, t(".label.email"), class: "form_label" %>
-            <%= error_tag user, :email %>
-        <%= f.text_field :email, placeholder: t(".placeholder.email"), class: "form_controll" %>
-
-        <div class="input-group-btn">
-          <%= f.submit button_text, class: "btn btn-outline-success btn-sm mt-2" %>
-          <% if user.persisted? %>
-            <%= link_to t("links.back"), user_path(user), class: "btn btn-outline-dark btn-sm mt-2" %>
-          <% else %>
-            <%= link_to t("links.back"), users_path, class: "btn btn-outline-dark btn-sm mt-2" %>
-          <% end %>
-      </div>
+    <div id="error-explanation">
+      <h5><%= t("rentals.errors.title", count: user.errors.count) %></h5>
+      <p class="error-message"><%= user.errors.full_messages.to_sentence %></p>
+    </div>
   <% end %>
+
+  <div class="card mx-auto" style="width: 15rem;">
+    <div class="card-body">
+      <%= form_with(model: user, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :name, t(".label.name"), class: "form_label" %>
+          <%= f.text_field :name, placeholder: t(".placeholder.name"), class: "form_controll" %>
+          <%= error_tag user, :name %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, t(".label.email"), class: "form_label" %>
+          <%= f.text_field :email, placeholder: t(".placeholder.email"), class: "form_controll" %>
+          <%= error_tag user, :email %>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group-btn">
+            <%= f.submit button_text, class: "btn btn-outline-success btn-sm mt-2" %>
+            <% if user.persisted? %>
+              <%= link_to t("links.back"), user_path(user), class: "btn btn-outline-dark btn-sm mt-2" %>
+            <% else %>
+              <%= link_to t("links.back"), users_path, class: "btn btn-outline-dark btn-sm mt-2" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
